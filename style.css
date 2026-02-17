@@ -1,0 +1,160 @@
+:root {
+    --main-blue: #0066ff;
+    --dark-bg: #0a0f1a;
+    --card-bg: rgba(255, 255, 255, 0.02);
+    --border-color: rgba(0, 102, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Cuadrícula técnica de fondo */
+.background-grid {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: -1;
+    mask-image: radial-gradient(circle, black, transparent 90%);
+    opacity: 0.5;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Header Asimétrico */
+.hero-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Manda la foto a la derecha */
+    min-height: 80vh;
+    padding-bottom: 100px;
+}
+
+.hero-text {
+    flex: 2;
+    max-width: 800px;
+}
+
+h1 { font-size: 4.5rem; line-height: 1; font-weight: 700; }
+.accent-text { color: var(--main-blue); }
+
+.intro-p {
+    font-size: 1.3rem;
+    color: #8892b0;
+    margin-top: 20px;
+    max-width: 450px;
+}
+
+/* Área de la Foto*/
+.profile-area {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Alinea al final */
+}
+
+.profile-card {
+    position: relative;
+    width: 280px;
+}
+
+.foto-perfil {
+    width: 100%;
+    border-radius: 50px;
+    border: 1px solid var(--main-blue);
+    transform: rotate(3deg); /* Inclinación original */
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+    transition: 0.5s;
+}
+
+.profile-card:hover .foto-perfil {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.online-indicator {
+    position: absolute;
+    top: -10px; right: -10px;
+    width: 20px; height: 20px;
+    background: #00ff88;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #00ff88;
+}
+
+/* FLUJO DE SECCIONES (Scroll) */
+.flow-content {
+    margin-top: 50px;
+}
+
+.reveal-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 60px;
+    border-radius: 40px;
+    margin-bottom: 120px; /* MUCHO ESPACIO PARA BAJAR */
+    backdrop-filter: blur(10px);
+    transition: 0.4s ease-out;
+}
+
+/* Títulos Azules Ordenados */
+.section-title {
+    color: var(--main-blue);
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    display: block;
+    border-left: 3px solid var(--main-blue);
+    padding-left: 15px;
+}
+
+.tags { display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+.tags span {
+    border: 1px solid var(--main-blue);
+    color: var(--main-blue);
+    padding: 6px 18px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.edu-info p { font-size: 1.1rem; margin-bottom: 10px; }
+
+.personal-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Video Frame */
+.video-frame {
+    margin-top: 20px;
+    aspect-ratio: 16/9;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+.video-frame iframe { width: 100%; height: 100%; border: none; }
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-flex { flex-direction: column-reverse; text-align: center; justify-content: center; }
+    .profile-area { justify-content: center; margin-bottom: 40px; }
+    h1 { font-size: 3rem; }
+    .personal-split { grid-template-columns: 1fr; }
+    .reveal-card { padding: 30px; }
+}
