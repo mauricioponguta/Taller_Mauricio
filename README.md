@@ -16,7 +16,7 @@ El portafolio ha sido diseñado desde cero con el objetivo de mostrar mis hablid
 
 ## Contacto
 * **Correo:** pongutaerin07@gmail.com
-* **Telefono:** +573115794689
+* **Telefono:** +57 3115794689
 * **GitHud:** 
 
 ## Estructura de Archivos
